@@ -36,18 +36,17 @@ class LoginActivity : ComponentActivity() {
 
             // Choose authentication providers
             val providers = arrayListOf(
-                AuthUI.IdpConfig.GoogleBuilder().build(),
-                AuthUI.IdpConfig.PhoneBuilder().build(),
+                AuthUI.IdpConfig.GoogleBuilder().build()
+            )
 
-                )
-
-            // Create and launch sign-in intent
+// Create and launch sign-in intent with just the Google provider
             val signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
+                .setAlwaysShowSignInMethodScreen(true)
                 .build()
-            signInLauncher.launch(signInIntent)
 
+            signInLauncher.launch(signInIntent)
             // User is signed out, navigate the user to the login screen or prompt them to log in.
         }
 
@@ -58,6 +57,8 @@ class LoginActivity : ComponentActivity() {
         if (result.resultCode == RESULT_OK) {
             // Successfully signed in
             val user = FirebaseAuth.getInstance().currentUser
+            val intent: Intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             // ...
         } else {
             // Sign in failed. If response is null the user canceled the

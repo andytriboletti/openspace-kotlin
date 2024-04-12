@@ -63,7 +63,7 @@ dependencies {
     implementation(libs.sceneview)
     implementation(libs.firebase.analytics)
     implementation(libs.firebaseUiAuth)
-    //implementation(libs.filamentAndroid)
+    implementation(libs.appcompat)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

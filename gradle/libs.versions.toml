@@ -12,6 +12,7 @@ googleServices = "4.4.1"
 firebaseAnalytics = "21.6.2"
 firebaseUiAuth = "8.0.2"
 filamentAndroid = "1.51.3"
+appcompat = "1.3.0"  # Added AppCompat version here
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,7 @@ firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics
 firebaseUiAuth = { group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebaseUiAuth" }
 #sceneview = { git = "https://github.com/andytriboletti/sceneview-android.git", rev = "head" }
 #sceneview = { group = "io.github.andytriboletti", name = "sceneview", version = "2.0.4" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }  # Reference AppCompat here
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
