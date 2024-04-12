@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -60,7 +61,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.sceneview)
-
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebaseUiAuth)
+    //implementation(libs.filamentAndroid)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -69,4 +72,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+android {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
