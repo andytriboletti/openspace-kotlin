@@ -60,6 +60,7 @@ import com.google.android.filament.EntityInstance
 import io.github.sceneview.Entity
 import io.github.sceneview.SceneView
 import io.github.sceneview.components.CameraComponent
+import io.github.sceneview.math.Scale
 import io.github.sceneview.rememberCameraNode
 import io.github.sceneview.rememberView
 
@@ -123,8 +124,12 @@ fun Apples() {
 //
 //        position = Position(z = 4.0f)
 //    }
-    val cameraNode = SceneView.DefaultCameraNode(engine)
-
+    //val cameraNode = SceneView.DefaultCameraNode(engine)
+    val cameraNode = SceneView.createCameraNode(engine)
+    //cameraNode = rememberCameraNode(engine).apply {
+    //    position = Position(z = -4.0f)
+    //} as SceneView.DefaultCameraNode
+    //cameraNode.position  = Position(z = 100.0f)
 
 
     Box(
@@ -147,13 +152,14 @@ fun Apples() {
             lifecycle = LocalLifecycleOwner.current.lifecycle,
             view = rememberView(engine),
             childNodes = rememberNodes {
-                add(ModelNode(modelLoader.createModelInstance("apple.glb")).apply {
+                add(ModelNode(modelLoader.createModelInstance("earth.glb")).apply {
                     // Position the first apple
-                    position = Position(0f, 0f, 0f)
+                    position = Position(-5f, 0f, -30f)
+                    scale = Scale(10f, 10f, 10f)
                 })
-                add(ModelNode(modelLoader.createModelInstance("apple2.glb")).apply {
+                add(ModelNode(modelLoader.createModelInstance("spaceshipc.glb")).apply {
                     // Position the second apple
-                    position = Position(2f, 0f, 0f)
+                    position = Position(5f, 0f, -30f)
                 })
             },
             //environment = environmentLoader.createHDREnvironment("environment.hdr")!!
